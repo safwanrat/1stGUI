@@ -11,7 +11,7 @@ from tkinter.filedialog import askopenfile
 root = tk.Tk()
 
 canvas = tk.Canvas(root, width=600, height=300)
-canvas.grid(columnspan=3, rowspan=3)
+canvas.grid(columnspan=3, rowspan=4)
 
 #logo
 logo = Image.open('logo.png')
@@ -37,9 +37,13 @@ def open_file():
         text_box.insert(1.0, page_content)
         text_box.tag_configure("center", justify="center")
         text_box.tag_add("center", 1.0, "end")
-        text_box.grid(column=1, row=3)
+        text_box.grid(column=1, row=4)
 
         browse_text.set("Browse")
+
+
+# def change_color():
+#     print("")
 
 #browse button
 browse_text = tk.StringVar()
@@ -47,7 +51,13 @@ browse_btn = tk.Button(root, textvariable=browse_text, command=lambda:open_file(
 browse_text.set("Browse")
 browse_btn.grid(column=1, row=2)
 
-canvas = tk.Canvas(root, width=600, height=250)
-canvas.grid(columnspan=3)
+# #change color button
+# changecolor_text = tk.StringVar()
+# changecolor_btn = tk.Button(root, textvariable = changecolor_text, command = lambda:change_color(), font="Raleway", bg="#20bebe", fg="white", height=2, width=15)
+# changecolor_text.set("Change Color")
+# changecolor_btn.grid(column=1, row=3)
+
+# canvas = tk.Canvas(root, width=600, height=250)
+# canvas.grid(columnspan=3)
 
 root.mainloop()
