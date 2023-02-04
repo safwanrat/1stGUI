@@ -41,7 +41,7 @@ def open_file():
         text_box.grid(column=1, row=4)
         scrollbar.config(command=text_box.yview)
         scrollbar.grid(column=2, row=4, sticky="NS")
-        browse_text.set("Browse")
+        browse_text.set("Browse Again")
 
 #browse button
 browse_text = tk.StringVar()
