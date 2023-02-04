@@ -17,7 +17,6 @@ canvas.grid(columnspan=3, rowspan=4)
 logo = Image.open('logo.png')
 logo = ImageTk.PhotoImage(logo)
 logo_label = tk.Label(image=logo)
-logo_label.image = logo
 logo_label.grid(column=1, row=0)
 
 #instructions
@@ -32,7 +31,7 @@ def open_file():
         page = read_pdf.getPage(0)
         page_content = page.extractText()
 
-        #text box
+        #text box, scrollbar
         scrollbar = tk.Scrollbar(root)
         text_box = tk.Text(root, yscrollcommand = scrollbar.set, height=10, width=50, padx=15, pady=15)
         text_box.insert(1.0, page_content)
