@@ -1,6 +1,6 @@
 '''
 119 Safwan Rahman
-This code extracts text from a PDF.
+This code extracts text from a PDF. The dynamic element was a scrollbar.
 '''
 
 import tkinter as tk
@@ -33,31 +33,20 @@ def open_file():
         page_content = page.extractText()
 
         #text box
-        text_box = tk.Text(root, height=10, width=50, padx=15, pady=15)
+        scrollbar = tk.Scrollbar(root)
+        text_box = tk.Text(root, yscrollcommand = scrollbar.set, height=10, width=50, padx=15, pady=15)
         text_box.insert(1.0, page_content)
         text_box.tag_configure("center", justify="center")
         text_box.tag_add("center", 1.0, "end")
         text_box.grid(column=1, row=4)
-
+        scrollbar.config(command=text_box.yview)
+        scrollbar.grid(column=2, row=4, sticky="NS")
         browse_text.set("Browse")
-
-
-# def change_color():
-#     print("")
 
 #browse button
 browse_text = tk.StringVar()
 browse_btn = tk.Button(root, textvariable=browse_text, command=lambda:open_file(), font="Raleway", bg="#20bebe", fg="white", height=2, width=15)
 browse_text.set("Browse")
 browse_btn.grid(column=1, row=2)
-
-# #change color button
-# changecolor_text = tk.StringVar()
-# changecolor_btn = tk.Button(root, textvariable = changecolor_text, command = lambda:change_color(), font="Raleway", bg="#20bebe", fg="white", height=2, width=15)
-# changecolor_text.set("Change Color")
-# changecolor_btn.grid(column=1, row=3)
-
-# canvas = tk.Canvas(root, width=600, height=250)
-# canvas.grid(columnspan=3)
 
 root.mainloop()
