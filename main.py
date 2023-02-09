@@ -1,6 +1,6 @@
 '''
 119 Safwan Rahman
-This code extracts text from a PDF. The dynamic element was a scrollbar and a dropdown menu for changing the background color of the textbox.
+This code extracts text from a PDF. The dynamic element was a scrollbar.
 '''
 
 import tkinter as tk
@@ -42,20 +42,6 @@ def open_file():
         scrollbar.config(command=text_box.yview)
         scrollbar.grid(column=2, row=3, sticky="NS")
         browse_text.set("Browse Again")
-
-        # colors of text box background
-        colors = ["white", "red", "orange", "purple", "blue"]
-        default_color = tk.StringVar(root)
-        default_color.set(colors[0])
-        dropdown = tk.OptionMenu(root, default_color, *colors)
-        dropdown.grid(column = 3, row = 3)
-        def changing_color():
-            for color in colors:
-                if default_color.get() == color:
-                    text_box.config(bg = default_color.get())
-
-        change_bg_color = tk.Button(root, text = "Change Color of Background", command=changing_color)
-        change_bg_color.grid(column = 4, row = 3)
 
 # browse button
 browse_text = tk.StringVar()
